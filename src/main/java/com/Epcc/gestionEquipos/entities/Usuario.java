@@ -14,6 +14,16 @@ public class Usuario {
 
     private String nombre;
 
+    private String apellido;
+
+    private String cui;
+
+
+    @Column(name = "tell_cell")
+    private String telefonoCelular;
+
+    private String direccion;
+
     private String correo;
 
     private String contrasenia;
