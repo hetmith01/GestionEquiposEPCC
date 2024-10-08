@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -29,6 +30,7 @@ public class AmbienteController {
 
             AmbienteDTO ambienteDTO = AmbienteDTO.builder()
                     .id(ambiente.getId())
+                    .codigoPatrimonial(ambiente.getCodigoPatrimonial())
                     .nombre(ambiente.getNombre())
                     .mueblesList(ambiente.getMueblesList())
                     .equipoList(ambiente.getEquipoList())
@@ -36,6 +38,21 @@ public class AmbienteController {
             return ResponseEntity.ok(ambienteDTO);
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/findAll")
+    public ResponseEntity<?> findAll(){
+        List<AmbienteDTO> ambienteDTOList = ambienteService.findAll()
+                .stream()
+                .map(ambiente ->  AmbienteDTO.builder()
+                        .id(ambiente.getId())
+                        .codigoPatrimonial(ambiente.getCodigoPatrimonial())
+                        .nombre(ambiente.getNombre())
+                        .mueblesList(ambiente.getMueblesList())
+                        .equipoList(ambiente.getEquipoList())
+                        .build())
+                .toList();
+        return ResponseEntity.ok(ambienteDTOList);
     }
 
 }
