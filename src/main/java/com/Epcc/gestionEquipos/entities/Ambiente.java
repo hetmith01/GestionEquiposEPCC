@@ -3,6 +3,7 @@ package com.Epcc.gestionEquipos.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "ambientes")
+@Builder
 public class Ambiente {
 
     @Id

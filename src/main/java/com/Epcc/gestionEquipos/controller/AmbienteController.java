@@ -6,11 +6,10 @@ import com.Epcc.gestionEquipos.entities.Ambiente;
 import com.Epcc.gestionEquipos.service.IAmbienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
 
@@ -55,4 +54,56 @@ public class AmbienteController {
         return ResponseEntity.ok(ambienteDTOList);
     }
 
+    @PostMapping("/save")
+    public  ResponseEntity<?> save(@RequestBody AmbienteDTO ambienteDTO) throws URISyntaxException{
+        if(ambienteDTO.getNombre().isBlank()){
+            return ResponseEntity.badRequest().build();
+        }
+
+        ambienteService.save(Ambiente.builder()
+                .nombre(ambienteDTO.getNombre())
+                .codigoPatrimonial(ambienteDTO.getCodigoPatrimonial())
+                .build());
+
+        return ResponseEntity.created(new URI("/api/ambiente/save")).build();
+    }
+
+    @PutMapping("update/{id}")
+    public ResponseEntity<?> updateAmbiente(@PathVariable Long id, @RequestBody AmbienteDTO ambienteDTO){
+        Optional<Ambiente> ambienteOptional = ambienteService.findById(id);
+
+        if(ambienteOptional.isPresent()){
+            Ambiente ambiente = ambienteOptional.get();
+            ambiente.setNombre(ambienteDTO.getNombre());
+            ambiente.setCodigoPatrimonial(ambienteDTO.getCodigoPatrimonial());
+            ambienteService.save(ambiente);
+            return  ResponseEntity.ok("Registro actualizado!!!");
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
+        if(id != null){
+            ambienteService.deleteById(id);
+            return ResponseEntity.ok("Registro eliminado!!!");
+        }
+        return  ResponseEntity.badRequest().build();
+    }
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
+

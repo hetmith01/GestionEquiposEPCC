@@ -3,11 +3,13 @@ package com.Epcc.gestionEquipos.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "")
+@Builder
 public class Equipo {
 
     @Id
