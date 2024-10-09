@@ -15,6 +15,8 @@ public class EquipoDTO {
 
     private Long id;
 
+    private String nombre;
+
     private String codigoPatrimonial;
 
     private String tipo;

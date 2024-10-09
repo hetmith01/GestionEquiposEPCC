@@ -19,6 +19,8 @@ public class Equipo {
     @Column(name = "codigo_patrimonial")
     private String codigoPatrimonial;
 
+    private String nombre;
+
     private String tipo; //si el equipo es de uso general, uso por alumnos en determinadpos cursos, uso administrativo
 
     private Boolean operabilidad;
