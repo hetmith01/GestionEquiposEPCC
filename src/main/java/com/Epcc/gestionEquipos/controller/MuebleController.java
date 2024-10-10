@@ -17,7 +17,7 @@ import java.util.Optional;
 public class MuebleController {
 
     @Autowired
-    private IMuebleService muebleService
+    private IMuebleService muebleService;
 
     @GetMapping("/find/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id){
@@ -62,6 +62,29 @@ public class MuebleController {
                 .ambiente(muebleDTO.getAmbiente())
                 .build());
         return ResponseEntity.created(new URI("/api/mueble/save")).build();
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody MuebleDTO muebleDTO){
+        Optional<Mueble> muebleOptional = muebleService.findById(id);
+        if(muebleOptional.isPresent()){
+            Mueble mueble = muebleOptional.get();
+            mueble.setNombre(muebleDTO.getNombre());
+            mueble.setAmbiente(muebleDTO.getAmbiente());
+            mueble.setCodigoPatrimonial(muebleDTO.getCodigoPatrimonial());
+            muebleService.save(mueble);
+            return ResponseEntity.ok("Registro actualizado!!!");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
+        if(id != null){
+            muebleService.deleteById(id);
+            return ResponseEntity.ok("Registro eliminado!!!");
+        }
+        return ResponseEntity.badRequest().build();
     }
 }
 
