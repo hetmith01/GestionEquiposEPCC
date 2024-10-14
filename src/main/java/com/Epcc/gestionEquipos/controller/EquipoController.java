@@ -83,6 +83,7 @@ public class EquipoController {
             equipo.setTipo(equipoDTO.getTipo());
             equipo.setOperabilidad(equipoDTO.getOperabilidad());
             equipo.setCodigoPatrimonial(equipoDTO.getCodigoPatrimonial());
+            equipoService.save(equipo);
             return ResponseEntity.ok("Registro actualizado!!!");
         }
         return ResponseEntity.notFound().build();
