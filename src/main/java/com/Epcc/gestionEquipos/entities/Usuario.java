@@ -25,7 +25,7 @@ public class Usuario {
     private String cui;
 
 
-    @Column(name = "tell_cell")
+    @Column(name = "telefono_cell")
     private String telefonoCelular;
 
     private String direccion;

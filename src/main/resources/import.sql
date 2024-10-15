@@ -24,4 +24,18 @@ INSERT INTO muebles(codigo_patrimonial, nombre, ambiente_id) VALUES("m007", "mes
 INSERT INTO muebles(codigo_patrimonial, nombre, ambiente_id) VALUES("m008", "mesa 1", 3);
 INSERT INTO muebles(codigo_patrimonial, nombre, ambiente_id) VALUES("m009", "mesa 1", 3);
 
-INSERT INTO equipos()
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0001", "oculus quest 2", "General", true, 1);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0002", "oculus quest 2", "General", false, 2);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0003", "robot nao", "General", true, 2);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0004", "dron", "General", true, 1);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0005", "E-4", "General", false, 2);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0006", "E-4", "General", false, 2);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0007", "computadora core-i9", "Particular", true, 2);
+INSERT INTO equipos(codigo_patrimonial, nombre, tipo, operabilidad, ambiente_id) VALUES("e0008", "Projector", "Particular", true, 3);
+
+iNSERT INTO usuarios(nombre, apellido, cui, telefono_cell, direccion, correo) VALUES("Hetmith", "Hancco", "", "955042968", "Cayma, la tomilla, av. 28 de julio", "hhanccot@unsa.edu.pe");
+iNSERT INTO usuarios(nombre, apellido, cui, telefono_cell, direccion, correo) VALUES("Eduardo", "Ruiz", "", "967895654", "Cerro Colorado, ", "eruizd@unsa.edu.pe");
+iNSERT INTO usuarios(nombre, apellido, cui, telefono_cell, direccion, correo) VALUES("Milagros", "Elme", "", "99999999", "Cayma, Asequi alta", "melmec@unsa.edu.pe");
+
+
+
