@@ -8,6 +8,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -34,5 +37,8 @@ public class Equipo {
     @JsonIgnore
     private Ambiente ambiente;
 
+    @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
+    private List<Solicitud> solicitudList = new ArrayList<>();
 
 }

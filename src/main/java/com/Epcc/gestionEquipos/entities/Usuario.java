@@ -1,10 +1,14 @@
 package com.Epcc.gestionEquipos.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -33,5 +37,10 @@ public class Usuario {
     private String correo;
 
     private String contrasenia;
+
+
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @JsonIgnore
+    private List<Solicitud> solicitudList = new ArrayList<>();
 
 }
