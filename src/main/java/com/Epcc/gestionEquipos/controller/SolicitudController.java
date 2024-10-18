@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Optional;
@@ -78,16 +79,41 @@ public class SolicitudController {
 
     }
 
-}
-/*
-private Long id;
-    private String docente;
-    private String curso;
-    private LocalDateTime fechaHoraPrestamoEstipulado;
-    private LocalDateTime fechaHoraDevolucionEstipulada;
-    private Usuario usuario;
-    private Equipo equipo;
-    private Prestamo prestamo;
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody SolicitudDTO solicitudDTO){
+        Optional<Solicitud> solicitudOptional = solicitudService.findById(id);
 
-*/
+        if(solicitudOptional.isPresent()){
+            Solicitud solicitud = solicitudOptional.get();
+            solicitud.setCurso(solicitudDTO.getCurso());
+            solicitud.setEquipo(solicitudDTO.getEquipo());
+            solicitud.setDocente(solicitudDTO.getDocente());
+            solicitud.setUsuario(solicitudDTO.getUsuario());
+            solicitud.setPrestamo(solicitudDTO.getPrestamo());
+            solicitud.setFechaHoraDevolucionEstipulada(solicitudDTO.getFechaHoraDevolucionEstipulada());
+            solicitud.setFechaHoraPrestamoEstipulado(solicitudDTO.getFechaHoraPrestamoEstipulado());
+            return ResponseEntity.ok("Registro ctualizado!!!");
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
+        if(id != null){
+            solicitudService.deleteByID(id);
+            return ResponseEntity.ok("Registro eliminado!!!");
+        }
+        return ResponseEntity.badRequest().build();
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
