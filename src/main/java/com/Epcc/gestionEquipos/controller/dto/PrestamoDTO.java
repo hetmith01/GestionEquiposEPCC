@@ -20,6 +20,8 @@ public class PrestamoDTO {
 
     private Long id;
 
+    private String estado;
+
     private LocalDateTime fechaHoraPrestamo;
 
     private  LocalDateTime fechaHoraDevolucion;

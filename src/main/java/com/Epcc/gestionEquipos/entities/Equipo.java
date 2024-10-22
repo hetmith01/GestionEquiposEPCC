@@ -32,6 +32,8 @@ public class Equipo {
 
     private Boolean operabilidad;
 
+    private String descripcion; // piezas del equipo, algun defecto o falta
+
     @ManyToOne
     @JoinColumn(name = "ambiente_id", nullable = false)
     @JsonIgnore

@@ -27,6 +27,8 @@ public class EquipoDTO {
 
     private Boolean operabilidad;
 
+    private String descripcion;
+
     private Ambiente ambiente;
 
     private List<Solicitud> solicitudList = new ArrayList<>();

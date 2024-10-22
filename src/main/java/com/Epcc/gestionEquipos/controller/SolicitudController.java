@@ -31,6 +31,7 @@ public class SolicitudController {
                     .id(solicitud.getId())
                     .docente(solicitud.getDocente())
                     .curso(solicitud.getCurso())
+                    .estado(solicitud.getEstado())
                     .fechaHoraPrestamoEstipulado(solicitud.getFechaHoraPrestamoEstipulado())
                     .fechaHoraDevolucionEstipulada(solicitud.getFechaHoraDevolucionEstipulada())
                     .usuario(solicitud.getUsuario())
@@ -50,6 +51,7 @@ public class SolicitudController {
                         .id(solicitud.getId())
                         .docente(solicitud.getDocente())
                         .curso(solicitud.getCurso())
+                        .estado(solicitud.getEstado())
                         .fechaHoraPrestamoEstipulado(solicitud.getFechaHoraPrestamoEstipulado())
                         .fechaHoraDevolucionEstipulada(solicitud.getFechaHoraDevolucionEstipulada())
                         .usuario(solicitud.getUsuario())
@@ -69,6 +71,7 @@ public class SolicitudController {
         solicitudService.save(Solicitud.builder()
                 .docente(solicitudDTO.getDocente())
                 .curso(solicitudDTO.getCurso())
+                .estado(solicitudDTO.getEstado())
                 .fechaHoraDevolucionEstipulada(solicitudDTO.getFechaHoraDevolucionEstipulada())
                 .fechaHoraPrestamoEstipulado(solicitudDTO.getFechaHoraPrestamoEstipulado())
                 .usuario(solicitudDTO.getUsuario())
@@ -87,6 +90,7 @@ public class SolicitudController {
             Solicitud solicitud = solicitudOptional.get();
             solicitud.setCurso(solicitudDTO.getCurso());
             solicitud.setEquipo(solicitudDTO.getEquipo());
+            solicitud.setEstado(solicitudDTO.getEstado());
             solicitud.setDocente(solicitudDTO.getDocente());
             solicitud.setUsuario(solicitudDTO.getUsuario());
             solicitud.setPrestamo(solicitudDTO.getPrestamo());

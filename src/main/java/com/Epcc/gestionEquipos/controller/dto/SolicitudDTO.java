@@ -24,6 +24,8 @@ public class SolicitudDTO {
 
     private String curso;
 
+    private String estado;
+
     private LocalDateTime fechaHoraPrestamoEstipulado;
 
     private LocalDateTime fechaHoraDevolucionEstipulada;

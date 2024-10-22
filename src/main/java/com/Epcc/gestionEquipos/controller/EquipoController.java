@@ -31,6 +31,7 @@ public class EquipoController {
                     .id(equipo.getId())
                     .nombre(equipo.getNombre())
                     .codigoPatrimonial(equipo.getCodigoPatrimonial())
+                    .descripcion(equipo.getDescripcion())
                     .tipo(equipo.getTipo())
                     .operabilidad(equipo.getOperabilidad())
                     .ambiente(equipo.getAmbiente())
@@ -47,6 +48,7 @@ public class EquipoController {
                 .map(equipo -> EquipoDTO.builder()
                         .id(equipo.getId())
                         .nombre(equipo.getNombre())
+                        .descripcion(equipo.getDescripcion())
                         .codigoPatrimonial(equipo.getCodigoPatrimonial())
                         .tipo(equipo.getTipo())
                         .operabilidad(equipo.getOperabilidad())
@@ -66,6 +68,7 @@ public class EquipoController {
                 .nombre(equipoDTO.getNombre())
                 .codigoPatrimonial(equipoDTO.getCodigoPatrimonial())
                 .tipo(equipoDTO.getTipo())
+                .descripcion(equipoDTO.getDescripcion())
                 .operabilidad(equipoDTO.getOperabilidad())
                 .ambiente(equipoDTO.getAmbiente())
                 .build());
@@ -82,6 +85,7 @@ public class EquipoController {
             equipo.setNombre(equipoDTO.getNombre());
             equipo.setTipo(equipoDTO.getTipo());
             equipo.setOperabilidad(equipoDTO.getOperabilidad());
+            equipo.setDescripcion(equipoDTO.getDescripcion());
             equipo.setCodigoPatrimonial(equipoDTO.getCodigoPatrimonial());
             equipoService.save(equipo);
             return ResponseEntity.ok("Registro actualizado!!!");

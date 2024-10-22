@@ -32,6 +32,8 @@ public class Solicitud {
     @Column(name = "fecha_hora_devolucion_estipolada")
     private LocalDateTime fechaHoraDevolucionEstipulada;
 
+    private String estado; //enviado, en curso, terminado o inconcluso
+
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonIgnore
@@ -45,6 +47,7 @@ public class Solicitud {
 
 
     @OneToOne(mappedBy = "solicitud")
+    @JsonIgnore
     private Prestamo prestamo;
 
 

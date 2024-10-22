@@ -29,6 +29,7 @@ public class PrestamoController {
 
             PrestamoDTO prestamoDTO = PrestamoDTO.builder()
                     .id(prestamo.getId())
+                    .estado(prestamo.getEstado())
                     .fechaHoraPrestamo(prestamo.getFechaHoraPrestamo())
                     .fechaHoraDevolucion(prestamo.getFechaHoraDevolucion())
                     .solicitud(prestamo.getSolicitud())
@@ -45,6 +46,7 @@ public class PrestamoController {
                 .stream()
                 .map(prestamo -> PrestamoDTO.builder()
                         .id(prestamo.getId())
+                        .estado(prestamo.getEstado())
                         .fechaHoraPrestamo(prestamo.getFechaHoraPrestamo())
                         .fechaHoraDevolucion(prestamo.getFechaHoraDevolucion())
                         .solicitud(prestamo.getSolicitud())
@@ -60,6 +62,7 @@ public class PrestamoController {
         }
 
         prestamoService.save(Prestamo.builder()
+                .estado(prestamoDTO.getEstado())
                 .fechaHoraPrestamo(prestamoDTO.getFechaHoraPrestamo())
                 .fechaHoraDevolucion(prestamoDTO.getFechaHoraDevolucion())
                 .solicitud(prestamoDTO.getSolicitud())
@@ -76,6 +79,7 @@ public class PrestamoController {
             Prestamo prestamo = prestamoOptional.get();
             prestamo.setFechaHoraPrestamo(prestamoDTO.getFechaHoraPrestamo());
             prestamo.setFechaHoraDevolucion(prestamoDTO.getFechaHoraDevolucion());
+            prestamo.setEstado(prestamoDTO.getEstado());
             prestamo.setSolicitud(prestamoDTO.getSolicitud());
             prestamoService.save(prestamo);
             return ResponseEntity.ok("Registro actualizado");
@@ -94,15 +98,6 @@ public class PrestamoController {
 }
 
 
-/*
-private Long id;
-
-    private LocalDateTime fechaHoraPrestamo;
-
-    private  LocalDateTime fechaHoraDevolucion;
-
-    private Solicitud solicitud;
- */
 
 
 

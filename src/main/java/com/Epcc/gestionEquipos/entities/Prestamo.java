@@ -21,6 +21,8 @@ public class Prestamo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String estado; //en curso o entregado
+
     @Column(name = "fecha_prestamo")
     private LocalDateTime fechaHoraPrestamo;
 
