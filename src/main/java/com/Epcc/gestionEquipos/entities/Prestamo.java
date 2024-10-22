@@ -21,8 +21,10 @@ public class Prestamo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "fecha_prestamo")
     private LocalDateTime fechaHoraPrestamo;
 
+    @Column(name = "fecha_devolucion")
     private  LocalDateTime fechaHoraDevolucion;
 
 

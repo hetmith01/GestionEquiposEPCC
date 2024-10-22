@@ -38,4 +38,11 @@ iNSERT INTO usuarios(nombre, apellido, cui, telefono_cell, direccion, correo) VA
 iNSERT INTO usuarios(nombre, apellido, cui, telefono_cell, direccion, correo) VALUES("Milagros", "Elme", "", "99999999", "Cayma, Asequi alta", "melmec@unsa.edu.pe");
 
 
+INSERT INTO solicitudes(docente, curso, usuario_id, equipo_id) VALUES("Eliana Adriazola", "IP", 1,1);
+INSERT INTO solicitudes(docente, curso, usuario_id, equipo_id) VALUES("Eliana Adriazola", "IPO",1,2);
+INSERT INTO solicitudes(docente, curso, usuario_id, equipo_id) VALUES("Manuel Loayza", "Desarrollo",2,1);
+INSERT INTO solicitudes(docente, curso, usuario_id, equipo_id) VALUES("Juan Carlos Gutierrez", "IA",1,3);
 
+
+INSERT INTO prestamos(fecha_prestamo, fecha_devolucion, solicitud_id) VALUES("2024-10-21T15:30:00", "2024-10-21T15:30:00", 2);
+INSERT INTO prestamos(fecha_prestamo, fecha_devolucion, solicitud_id) VALUES("2024-10-21T15:30:00", "2024-10-21T15:30:00", 1);
